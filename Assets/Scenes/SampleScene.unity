@@ -503,3 +503,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6ac211354fa53458837547ba3d1a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  myRigidbody: {fileID: 0}

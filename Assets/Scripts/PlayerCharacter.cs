@@ -8,6 +8,7 @@ public class PlayerCharacter : MonoBehaviour {
     private float speed;
     [SerializeField]
     private Rigidbody2D myRigidbody;
+    private float moveInput;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,10 +16,24 @@ public class PlayerCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.D))
-        {
-            myRigidbody.velocity = new Vector2(speed, myRigidbody.velocity.y);
-        }
+        GetMovementInput();
     }
-
+    private void FixedUpdate()
+    {
+        Move();
+    }
+    private void GetMovementInput()
+    {
+        moveInput = Input.GetAxis("Horizontal");
+    }
+    private void Move()
+    {
+        myRigidbody.velocity = new Vector2(moveInput * speed, myRigidbody.velocity.y);
+        //transform.Translate(speed, 0, 0); DONT use transform.translate on physics engine object
+    }
+    private void Jump()
+    {
+        // TODO: make character jump
+    }
+        
 }
